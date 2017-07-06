@@ -3,6 +3,7 @@ package hello;
 
 import javax.jms.ConnectionFactory;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
@@ -19,7 +20,7 @@ import org.springframework.jms.support.converter.MessageType;
 @SpringBootApplication
 @EnableJms
 public class Application {
-
+   
     @Bean
     public JmsListenerContainerFactory<?> myFactory(ConnectionFactory connectionFactory,
                                                     DefaultJmsListenerContainerFactoryConfigurer configurer) {
@@ -42,14 +43,7 @@ public class Application {
         // Launch the application
         ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
 
-        JmsTemplate jmsTemplate = context.getBean(JmsTemplate.class);
-
-        // Send a message with a POJO - the template reuse the message converter
-        System.out.println("Sending an email message.");
-        jmsTemplate.convertAndSend("mailbox", new Email("info@example.com", "Hello"));
-        
-        System.out.println("Sending a feature request to support");
-        jmsTemplate.convertAndSend("featureIn", new Feature(1, "Raadplegen VA", "Raadplegen VA test als 1 dan return 333.33"));
+//        JmsTemplate jmsTemplate = context.getBean(JmsTemplate.class);
     }
 
 }

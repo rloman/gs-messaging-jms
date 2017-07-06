@@ -13,7 +13,7 @@ public class Receiver {
     
     @JmsListener(destination="featureIn", containerFactory="myFactory")
     public void receiveMessage(Feature feature) {
-       System.out.println("Received >"+feature+"<");
+       System.out.println("Received <"+feature+">");
     }
 
 }
