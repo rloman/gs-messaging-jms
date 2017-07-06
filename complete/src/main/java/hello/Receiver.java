@@ -10,5 +10,10 @@ public class Receiver {
     public void receiveMessage(Email email) {
         System.out.println("Received <" + email + ">");
     }
+    
+    @JmsListener(destination="featureIn", containerFactory="myFactory")
+    public void receiveMessage(Feature feature) {
+       System.out.println("Received >"+feature+"<");
+    }
 
 }
