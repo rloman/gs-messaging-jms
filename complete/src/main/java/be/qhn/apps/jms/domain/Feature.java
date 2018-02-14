@@ -1,4 +1,4 @@
-package hello;
+package be.qhn.apps.jms.domain;
 
 import java.io.Serializable;
 

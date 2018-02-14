@@ -1,4 +1,6 @@
-package hello;
+package be.qhn.apps.jms.domain;
+
+import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
@@ -10,7 +12,8 @@ public class Sender {
    @Autowired
    private JmsTemplate jmsTemplate;
 
-   public Sender() {
+   @PostConstruct
+   public void init() {
       
       for(;;) {
          try {

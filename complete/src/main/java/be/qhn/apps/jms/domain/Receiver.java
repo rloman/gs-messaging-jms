@@ -1,4 +1,4 @@
-package hello;
+package be.qhn.apps.jms.domain;
 
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
